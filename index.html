@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WebAR</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Optional polyfills for wider browser support -->
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="site-header">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="./assets/logo.png" alt="Company Logo">
+                </div>
+                <div class="company-name">
+                    <h1>Company Name</h1>
+                </div>
+            </div>
+        </div>
+        <hr class="header-divider">
+        <div class="header-menu">
+            <h2>Select a 3D Model</h2>
+            <select id="model-select">
+                <option value="./assets/Baseball glove.glb" data-name="Baseball glove">Baseball glove</option>
+                <option value="./assets/Boxing glove.glb" data-name="Boxing glove">Boxing glove</option>
+                <option value="./assets/Golf bag.glb" data-name="Golf bag">Golf bag</option>
+                <option value="./assets/Golf Visor.glb" data-name="Golf Visor">Golf Visor</option>
+            </select>
+        </div>
+        <div class="main-content">
+            <div class="model-viewer-container">
+                <model-viewer id="model-viewer"
+                              src="./assets/Baseball glove.glb"
+                              alt="3D model"
+                              shadow-intensity="1"
+                              camera-controls
+                              auto-rotate
+                              ar>
+                </model-viewer>
+            </div>
+            <div class="info-container">
+                <h2 id="model-name">Baseball glove</h2>
+                <div class="qr-code">
+                    <!-- Static QR code image -->
+                    <img id="qr-code" src="./assets/images/Profile.png" alt="QR Code">
+                </div>
+            </div>
+                    
+        </div>
+    </div>
+
+    
+    <!-- Load <model-viewer> for modern browsers -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Load <model-viewer> for older browsers -->
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <!-- JavaScript for handling model selection -->
+    <script src="./script.js"></script>
+</body>
+</html>
